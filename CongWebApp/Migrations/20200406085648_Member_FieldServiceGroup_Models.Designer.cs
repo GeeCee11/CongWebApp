@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CongWebApp.Migrations
 {
     [DbContext(typeof(CongWebAppContext))]
-    [Migration("20200406022610_addAdminRole")]
-    partial class addAdminRole
+    [Migration("20200406085648_Member_FieldServiceGroup_Models")]
+    partial class Member_FieldServiceGroup_Models
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -95,6 +95,219 @@ namespace CongWebApp.Migrations
                         .HasName("UserNameIndex");
 
                     b.ToTable("AspNetUsers");
+                });
+
+            modelBuilder.Entity("CongWebApp.Models.FieldServiceGroup", b =>
+                {
+                    b.Property<int>("FieldServiceGroupID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("City")
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
+
+                    b.Property<int?>("Day")
+                        .HasColumnType("int");
+
+                    b.Property<string>("GroupName")
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Suburb")
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
+
+                    b.Property<DateTime?>("Time")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("ZIP")
+                        .HasColumnType("varchar(10) CHARACTER SET utf8mb4")
+                        .HasMaxLength(10);
+
+                    b.HasKey("FieldServiceGroupID");
+
+                    b.ToTable("FieldServiceGroup");
+                });
+
+            modelBuilder.Entity("CongWebApp.Models.Member", b =>
+                {
+                    b.Property<int>("MemberID")
+                        .ValueGeneratedOnAdd()
+                        .HasColumnType("int");
+
+                    b.Property<string>("Address")
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("AssistancePlan")
+                        .HasColumnType("varchar(1000) CHARACTER SET utf8mb4")
+                        .HasMaxLength(1000);
+
+                    b.Property<int>("Baptised")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("BeginPublisher")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("BirthDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<int>("Blind")
+                        .HasColumnType("int");
+
+                    b.Property<int>("CAP")
+                        .HasColumnType("int");
+
+                    b.Property<int>("Calling")
+                        .HasColumnType("int");
+
+                    b.Property<string>("City")
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
+
+                    b.Property<int>("DC50")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime?>("DC50Expiry")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime>("DateCreated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<DateTime?>("DateImmersed")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("DcHome")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("DcMobile")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("DcName")
+                        .HasColumnType("varchar(60) CHARACTER SET utf8mb4")
+                        .HasMaxLength(60);
+
+                    b.Property<string>("DcRelationship")
+                        .HasColumnType("varchar(25) CHARACTER SET utf8mb4")
+                        .HasMaxLength(25);
+
+                    b.Property<string>("DcWork")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("Deaf")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EcHome")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("EcMobile")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("EcName")
+                        .HasColumnType("varchar(60) CHARACTER SET utf8mb4")
+                        .HasMaxLength(60);
+
+                    b.Property<string>("EcRelationship")
+                        .HasColumnType("varchar(25) CHARACTER SET utf8mb4")
+                        .HasMaxLength(25);
+
+                    b.Property<string>("EcWork")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("Elderly")
+                        .HasColumnType("int");
+
+                    b.Property<string>("EmailAddress")
+                        .HasColumnType("varchar(200) CHARACTER SET utf8mb4")
+                        .HasMaxLength(200);
+
+                    b.Property<int>("FamilyHead")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FamilyHeadId")
+                        .HasColumnType("int");
+
+                    b.Property<int?>("FieldServiceGroupID")
+                        .HasColumnType("int");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
+                        .HasMaxLength(20);
+
+                    b.Property<string>("FullName")
+                        .HasColumnType("varchar(60) CHARACTER SET utf8mb4")
+                        .HasMaxLength(60);
+
+                    b.Property<int>("Gender")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Home")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<int>("Infirm")
+                        .HasColumnType("int");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
+                        .HasMaxLength(20);
+
+                    b.Property<DateTime>("LastUpdated")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Mobile")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<DateTime>("MovedIn")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("NonBelieving")
+                        .HasColumnType("varchar(1000) CHARACTER SET utf8mb4")
+                        .HasMaxLength(1000);
+
+                    b.Property<int>("PublicWitnessing")
+                        .HasColumnType("int");
+
+                    b.Property<int>("SMPW")
+                        .HasColumnType("int");
+
+                    b.Property<string>("SpecialNeeds")
+                        .HasColumnType("varchar(1000) CHARACTER SET utf8mb4")
+                        .HasMaxLength(1000);
+
+                    b.Property<int>("Status")
+                        .HasColumnType("int");
+
+                    b.Property<DateTime>("StatusDate")
+                        .HasColumnType("datetime(6)");
+
+                    b.Property<string>("Suburb")
+                        .HasColumnType("varchar(30) CHARACTER SET utf8mb4")
+                        .HasMaxLength(30);
+
+                    b.Property<string>("Suffix")
+                        .HasColumnType("varchar(5) CHARACTER SET utf8mb4")
+                        .HasMaxLength(5);
+
+                    b.Property<int>("Visible")
+                        .HasColumnType("int");
+
+                    b.Property<string>("Work")
+                        .HasColumnType("longtext CHARACTER SET utf8mb4");
+
+                    b.Property<string>("ZIP")
+                        .HasColumnType("varchar(10) CHARACTER SET utf8mb4")
+                        .HasMaxLength(10);
+
+                    b.HasKey("MemberID");
+
+                    b.HasIndex("FieldServiceGroupID");
+
+                    b.ToTable("Member");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRole", b =>
@@ -223,6 +436,13 @@ namespace CongWebApp.Migrations
                     b.HasKey("UserId", "LoginProvider", "Name");
 
                     b.ToTable("AspNetUserTokens");
+                });
+
+            modelBuilder.Entity("CongWebApp.Models.Member", b =>
+                {
+                    b.HasOne("CongWebApp.Models.FieldServiceGroup", "FieldServiceGroup")
+                        .WithMany("Members")
+                        .HasForeignKey("FieldServiceGroupID");
                 });
 
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityRoleClaim<string>", b =>

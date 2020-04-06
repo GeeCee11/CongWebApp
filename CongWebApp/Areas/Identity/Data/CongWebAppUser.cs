@@ -3,6 +3,7 @@ using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.Linq;
 using System.Threading.Tasks;
+using CongWebApp.Models;
 using Microsoft.AspNetCore.Identity;
 
 namespace CongWebApp.Areas.Identity.Data
@@ -23,5 +24,6 @@ namespace CongWebApp.Areas.Identity.Data
         public string FullName => FirstName + " " + LastName;
 
         public bool IsAdmin { get; set; }
+   
     }
 }

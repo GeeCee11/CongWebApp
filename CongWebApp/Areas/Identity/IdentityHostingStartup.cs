@@ -21,9 +21,6 @@ namespace CongWebApp.Areas.Identity
                 services.AddDbContext<CongWebAppContext>(options =>
                     options.UseMySql(
                         context.Configuration.GetConnectionString("CongWebAppContextConnection")));
-
-                //services.AddDefaultIdentity<CongWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                //    .AddEntityFrameworkStores<CongWebAppContext>();
             });
         }
     }

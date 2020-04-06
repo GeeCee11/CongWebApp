@@ -21,8 +21,8 @@ namespace CongWebApp.Areas.Identity
 		{
 			var principal = await base.CreateAsync(user);
 			var identity = (ClaimsIdentity)principal.Identity;
-
-		var claims = new List<Claim>();
+			
+			var claims = new List<Claim>();
 			if (user.IsAdmin)
 			{
 				claims.Add(new Claim(JwtClaimTypes.Role, "admin"));

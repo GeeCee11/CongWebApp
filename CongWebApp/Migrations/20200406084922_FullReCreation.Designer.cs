@@ -9,8 +9,8 @@ using Microsoft.EntityFrameworkCore.Storage.ValueConversion;
 namespace CongWebApp.Migrations
 {
     [DbContext(typeof(CongWebAppContext))]
-    [Migration("20200406004449_InitaliseIdentity")]
-    partial class InitaliseIdentity
+    [Migration("20200406084922_FullReCreation")]
+    partial class FullReCreation
     {
         protected override void BuildTargetModel(ModelBuilder modelBuilder)
         {
@@ -31,12 +31,26 @@ namespace CongWebApp.Migrations
                         .IsConcurrencyToken()
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
 
+                    b.Property<DateTime>("DOB")
+                        .HasColumnType("datetime(6)");
+
                     b.Property<string>("Email")
                         .HasColumnType("varchar(256) CHARACTER SET utf8mb4")
                         .HasMaxLength(256);
 
                     b.Property<bool>("EmailConfirmed")
                         .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("FirstName")
+                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
+                        .HasMaxLength(20);
+
+                    b.Property<bool>("IsAdmin")
+                        .HasColumnType("tinyint(1)");
+
+                    b.Property<string>("LastName")
+                        .HasColumnType("varchar(20) CHARACTER SET utf8mb4")
+                        .HasMaxLength(20);
 
                     b.Property<bool>("LockoutEnabled")
                         .HasColumnType("tinyint(1)");
@@ -158,12 +172,10 @@ namespace CongWebApp.Migrations
             modelBuilder.Entity("Microsoft.AspNetCore.Identity.IdentityUserLogin<string>", b =>
                 {
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("varchar(128) CHARACTER SET utf8mb4")
-                        .HasMaxLength(128);
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("ProviderKey")
-                        .HasColumnType("varchar(128) CHARACTER SET utf8mb4")
-                        .HasMaxLength(128);
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("ProviderDisplayName")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
@@ -200,12 +212,10 @@ namespace CongWebApp.Migrations
                         .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("LoginProvider")
-                        .HasColumnType("varchar(128) CHARACTER SET utf8mb4")
-                        .HasMaxLength(128);
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Name")
-                        .HasColumnType("varchar(128) CHARACTER SET utf8mb4")
-                        .HasMaxLength(128);
+                        .HasColumnType("varchar(255) CHARACTER SET utf8mb4");
 
                     b.Property<string>("Value")
                         .HasColumnType("longtext CHARACTER SET utf8mb4");
