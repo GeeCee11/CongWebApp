@@ -2,9 +2,15 @@ using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Threading.Tasks;
+using CongWebApp.Areas.Identity;
+using CongWebApp.Areas.Identity.Data;
+using CongWebApp.Data;
+using CongWebApp.Services;
 using Microsoft.AspNetCore.Builder;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.HttpsPolicy;
+using Microsoft.AspNetCore.Identity;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
@@ -23,6 +29,19 @@ namespace CongWebApp
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
+            services.AddIdentity<CongWebAppUser, IdentityRole>(options => options.SignIn.RequireConfirmedAccount = true)
+                .AddEntityFrameworkStores<CongWebAppContext>()
+                .AddDefaultTokenProviders();
+
+            //services.AddIdentity<CongWebAppUser, IdentityRole>()
+            //    .AddEntityFrameworkStores<CongWebAppContext>()
+            //    .AddDefaultTokenProviders();
+
+            services.AddTransient<IEmailSender, EmailSender>();
+            services.Configure<AuthMessageSenderOptions>(Configuration);
+
+            services.AddScoped<IUserClaimsPrincipalFactory<CongWebAppUser>, AdditionalUserClamsPrincipalFactory>();
+
             services.AddRazorPages();
         }
 

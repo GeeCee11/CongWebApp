@@ -21,5 +21,7 @@ namespace CongWebApp.Areas.Identity.Data
         public DateTime DOB { get; set; }
         [PersonalData]
         public string FullName => FirstName + " " + LastName;
+
+        public bool IsAdmin { get; set; }
     }
 }

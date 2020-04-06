@@ -1,9 +1,11 @@
 ﻿using System;
 using CongWebApp.Areas.Identity.Data;
 using CongWebApp.Data;
+using CongWebApp.Services;
 using Microsoft.AspNetCore.Hosting;
 using Microsoft.AspNetCore.Identity;
 using Microsoft.AspNetCore.Identity.UI;
+using Microsoft.AspNetCore.Identity.UI.Services;
 using Microsoft.EntityFrameworkCore;
 using Microsoft.Extensions.Configuration;
 using Microsoft.Extensions.DependencyInjection;
@@ -20,8 +22,8 @@ namespace CongWebApp.Areas.Identity
                     options.UseMySql(
                         context.Configuration.GetConnectionString("CongWebAppContextConnection")));
 
-                services.AddDefaultIdentity<CongWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
-                    .AddEntityFrameworkStores<CongWebAppContext>();
+                //services.AddDefaultIdentity<CongWebAppUser>(options => options.SignIn.RequireConfirmedAccount = true)
+                //    .AddEntityFrameworkStores<CongWebAppContext>();
             });
         }
     }
